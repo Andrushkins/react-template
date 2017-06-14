@@ -2,7 +2,7 @@
 
 To start type:
 ```js
-npm i --save
+npm/yarn i/add --save
 webpack-dev-server --progress --colors
 open *http://localhost:2020/*
 ```
