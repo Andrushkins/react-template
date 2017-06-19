@@ -4,14 +4,15 @@ const webpack = require('webpack');
 const config = {
   context: path.resolve(__dirname, './src'),
   entry: {
-    app: './app.js'
+    app: './index.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: __dirname + '/src'
+    contentBase: __dirname + '/src',
+    hot: true
   },
   module: {
     rules: [
@@ -33,12 +34,11 @@ const config = {
       }
     ],
   },
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
 };
-
-// if (module.hot) {
-//   module.hot.accept();
-// }
 
 if (process.env.NODE_ENV === 'production') {
   config.devtool = '';
@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === 'production') {
   // Add more configuration for production here like
   // Uglify plugin
   // Offline plugin
-  // Etc,
+  // Etc
 }
 
 module.exports = config;
