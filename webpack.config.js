@@ -34,7 +34,7 @@ const config = {
       }
     ],
   },
-  devtool: 'eval-source-map',
+  devtool: 'cheap-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
