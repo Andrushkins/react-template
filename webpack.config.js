@@ -25,12 +25,18 @@ const config = {
         }]
       },
       {
+        test: /\.js?$/,
+        loader: 'eslint-loader',
+        include: path.resolve(process.cwd(), 'src'),
+        exclude: /node_modules/,
+        enforce: 'pre',
+        options: {
+          fix: true,
+        },
+      },
+      {
         test: /\.(sass|scss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ]
+        use: [ 'style-loader', 'css-loader', 'sass-loader']
       }
     ],
   },
